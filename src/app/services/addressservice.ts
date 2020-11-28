@@ -37,4 +37,8 @@ export class AddressService{
     deleteAddressById(addressId: number){
       return this.http.delete("http://localhost:8500/address/remove/"+addressId);
     }
+    updateAddress(address: any){
+      return this.http.put("http://localhost:8500/address/update",address,{responseType:'text' as 'json'});
+  }
+
 }

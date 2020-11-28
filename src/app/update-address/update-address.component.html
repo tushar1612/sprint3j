@@ -1,1 +1,118 @@
-<p>update-address works!</p>
+
+
+
+<div class="container">
+    
+  <h1 align="center">Address Update Screen</h1>
+  
+  <h2 class="text-danger" align="center">{{message}}</h2>
+  <div style="width: 500px;">
+
+    
+  <form [formGroup]="myUpdationForm" (ngSubmit)="updateAddress()">
+     
+
+      <div class="form-group">
+     
+          <label for="addressId">Address Id</label>
+          <input type="text" class="form-control" placeholder="Enter Id" id="addressId" name="addressId"  
+          formControlName="addressId" required>
+    
+    
+          <small class="text-danger" 
+          *ngIf="myUpdationForm.get('addressId').invalid && myUpdationForm.get('addressId').touched">
+          Please Enter Id
+          </small>
+        </div>
+
+      <div class="form-group">
+     
+        <label for="streetNo">streetNo</label>
+        <input type="text" class="form-control" id="streetNo" name="streetNo"  
+        formControlName="streetNo" placeholder="Enter Name" required>
+  
+  
+        <small class="text-danger" 
+        *ngIf="myUpdationForm.get('streetNo').invalid && myUpdationForm.get('streetNo').touched">
+        Please Enter Name
+        </small>
+      </div>
+     
+      <div class="form-group">
+     
+        <label for="buildingName">buildingName</label>
+        <input type="text" class="form-control" id="buildingName" name="buildingName"  
+        formControlName="buildingName" placeholder="Enter Name" required>
+  
+  
+        <small class="text-danger" 
+        *ngIf="myUpdationForm.get('buildingName').invalid && myUpdationForm.get('buildingName').touched">
+        Please Enter Name
+        </small>
+      </div>
+
+      
+  
+      <div class="form-group">
+     
+        <label for="city">city</label>
+        <input type="text" class="form-control" id="city" name="city"  
+        formControlName="city" placeholder="Enter Name" required>
+  
+  
+        <small class="text-danger" 
+        *ngIf="myUpdationForm.get('city').invalid && myUpdationForm.get('city').touched">
+        Please Enter Name
+        </small>
+      </div>
+  
+      <div class="form-group">
+     
+        <label for="state">state</label>
+        <input type="text" class="form-control" id="state" name="state"  
+        formControlName="state" placeholder="Enter Name" required>
+  
+  
+        <small class="text-danger" 
+        *ngIf="myUpdationForm.get('state').invalid && myUpdationForm.get('state').touched">
+        Please Enter Name
+        </small>
+      </div>
+      <div class="form-group">
+     
+        <label for="country">country</label>
+        <input type="text" class="form-control" id="country" name="country"  
+        formControlName="country" placeholder="Enter Name" required>
+  
+  
+        <small class="text-danger" 
+        *ngIf="myUpdationForm.get('country').invalid && myUpdationForm.get('country').touched">
+        Please Enter Name
+        </small>
+      </div>
+        
+      <div class="form-group">
+     
+        <label for="pincode">pincode</label>
+        <input type="text" class="form-control" id="pincode" name="pincode"  
+        formControlName="pincode" placeholder="Enter Name" required>
+  
+  
+        <small class="text-danger" 
+        *ngIf="myUpdationForm.get('pincode').invalid && myUpdationForm.get('pincode').touched">
+        Please Enter Name
+        </small>
+      </div>
+        
+        
+        
+      <input type="submit" class="btn btn-primary"  value="Update Address"/>
+    </form>
+    
+  </div>
+  
+  </div>
+
+
+
+    

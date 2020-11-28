@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductService } from './services/productservice';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductListBycategoryComponent } from './product-list-bycategory/product-list-bycategory.component';
@@ -53,7 +53,7 @@ import { AddressService } from './services/addressservice';
     AddressListComponent,
     UpdateAddressComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, FormsModule,AppRoutingModule, ReactiveFormsModule , HttpClientModule],
   providers: [ProductService, CategoryService,AddressService],
   bootstrap: [AppComponent],
 })

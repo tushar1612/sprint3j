@@ -1,0 +1,33 @@
+<h1 class="text-center text-info">Add Category</h1>
+<div class="container jumbotron">
+  <form #myform="ngForm" (ngSubmit)="myform.valid && addCategory(myform)">
+    <div class="form-group">
+      <label for="categoryName">Category Name</label>
+      <input
+        id="categoryName"
+        ngModel
+        name="categoryName"
+        #categoryName="ngModel"
+        class="form-control"
+        required
+      />
+      <div
+        *ngIf="
+          categoryName.invalid && (categoryName.dirty || categoryName.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="categoryName.errors != null && categoryName.errors.required"
+        >
+          Category Name can not be empty
+        </div>
+      </div>
+      <br />
+      <button type="submit" class="btn btn-primary">Add Category</button>
+    </div>
+  </form>
+</div>
+<div *ngIf="category">
+  <div class="alert alert-success" role="alert">Category added</div>
+</div>

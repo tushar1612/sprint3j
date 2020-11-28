@@ -1,0 +1,46 @@
+<h1 class="text-info text-center">Address List</h1>
+<div class="container">
+  <div class="row">
+    <table border="1" class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Street no</th>
+            <th scope="col">Building Name</th>
+            <th scope="col">city</th>
+            <th scope="col">State</th>
+            <th scope="col">Country</th>
+            <th scope="col">Pincode</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let address of addresses">
+            <td>{{ address.addressId }}</td>
+            <td> {{ address.streetNo }}</td>
+            <td> {{ address.buildingName }}</td>
+            <td>{{ address.city }}</td>
+            <td> {{ address.state }}</td>
+            <td>{{ address.country }}</td>
+            <td>{{ address.pincode }}</td>
+            <td>
+                <button
+                  (click)="removeAddress(address.addressId)"
+                  class="btn btn-danger"
+                >
+                  DELETE
+                </button>
+                <br />
+                <br />
+                <button
+                  routerLink="updateProduct/{{ address.addressId }}"
+                  class="btn btn-primary"
+                >
+                  UPDATE
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>

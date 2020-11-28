@@ -1,0 +1,22 @@
+<h1 class="text-info text-center">Fetch Category Details</h1>
+<div class="container jumbotron">
+  <form #myform="ngForm" (ngSubmit)="myform.valid && fetchCategory(myform)">
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input
+        id="catId"
+        ngModel
+        name="catId"
+        #catId="ngModel"
+        class="form-control"
+      />
+      <br />
+      <button type="submit" class="btn btn-primary">Get Category</button>
+    </div>
+  </form>
+</div>
+<div class="jumbotron" *ngIf="category">
+  Category is {{ category.catId }},{{ category.categoryName }}
+  <br />
+  <div class="alert alert-success text-center" role="alert">Fetch Success</div>
+</div>

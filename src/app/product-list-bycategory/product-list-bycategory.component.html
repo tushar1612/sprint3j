@@ -1,0 +1,38 @@
+<h1 class="text-center text-info">Fetch Product Details With Category</h1>
+
+<div class="container jumbotron">
+  <form
+    #myform="ngForm"
+    (ngSubmit)="myform.valid && fetchProductsByCategory(myform)"
+  >
+    <div class="form-group">
+      <label for="catId">Category Id</label>
+      <input
+        id="catId"
+        ngModel
+        name="catId"
+        #catId="ngModel"
+        class="form-control"
+      />
+      <br />
+      <button type="submit" class="btn btn-primary">Get Product</button>
+    </div>
+  </form>
+</div>
+<div *ngFor="let product of products">
+  <div class="jumbotron" *ngIf="product !== undefined">
+    Product Id is {{ product.productId }} <br />
+    Product Name is {{ product.productName }} <br />
+    Product Price is {{ product.price }} <br />
+    Product Color is {{ product.color }} <br />
+    Product Dimension is {{ product.dimension }} <br />
+    Product Specification is {{ product.specification }} <br />
+    Product Manufacturer is {{ product.manufacturer }} <br />
+    Product Quantity is {{ product.quantity }} <br />
+    Category is {{ product.catId }} {{ product.categoryName }}<br />
+    <br />
+    <div class="alert alert-success text-center" role="alert">
+      Fetch Success
+    </div>
+  </div>
+</div>

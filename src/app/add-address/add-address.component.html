@@ -1,0 +1,192 @@
+<h1 class="text-center text-info">Add Product</h1>
+<div class="container jumbotron">
+  <form #myform="ngForm" (ngSubmit)="myform.valid && addAddress(myform)">
+    <div class="form-group">
+      <label for="streetNo">Street Number</label>
+      <input
+        id="streetNo"
+        ngModel
+        name="streetNo"
+        #streetNo="ngModel"
+        required
+        minlength="3"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+        streetNo.invalid && (streetNo.dirty || streetNo.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="streetNo.errors != null && streetNo.errors.required">
+          Street Number can not be empty
+        </div>
+
+        <div
+          *ngIf="streetNo.errors != null && streetNo.errors.minlength"
+          class="text-warning"
+        >
+          Please enter atleast 3 characters
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="form-group">
+      <label for="buildingName"> Building Name</label>
+      <input
+        id="buildingName"
+        ngModel
+        name="buildingName"
+        #buildingName="ngModel"
+        required
+        minlength="3"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+        buildingName.invalid && (buildingName.dirty || buildingName.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="buildingName.errors != null && buildingName.errors.required">
+          Building Name can not be empty
+        </div>
+
+        <div
+          *ngIf="buildingName.errors != null && buildingName.errors.minlength"
+          class="text-warning"
+        >
+          Please enter atleast 3 characters
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="form-group">
+      <label for="city">City </label>
+      <input
+        id="city"
+        ngModel
+        name="city"
+        #city="ngModel"
+        required
+        minlength="3"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+        city.invalid && (city.dirty || city.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="city.errors != null && city.errors.required">
+          City Name can not be empty
+        </div>
+
+        <div
+          *ngIf="city.errors != null && city.errors.minlength"
+          class="text-warning"
+        >
+          Please enter atleast 3 characters
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="form-group">
+      <label for="state">State </label>
+      <input
+        id="state"
+        ngModel
+        name="state"
+        #state="ngModel"
+        required
+        minlength="3"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+        state.invalid && (state.dirty || state.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="state.errors != null && state.errors.required">
+          State Name can not be empty
+        </div>
+
+        <div
+          *ngIf="state.errors != null && state.errors.minlength"
+          class="text-warning"
+        >
+          Please enter atleast 3 characters
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="form-group">
+      <label for="country">Country </label>
+      <input
+        id="country"
+        ngModel
+        name="country"
+        #country="ngModel"
+        required
+        minlength="3"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+        country.invalid && (country.dirty || country.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="country.errors != null && country.errors.required">
+          country Name can not be empty
+        </div>
+
+        <div
+          *ngIf="country.errors != null && country.errors.minlength"
+          class="text-warning"
+        >
+          Please enter atleast 3 characters
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="form-group">
+      <label for="pincode">Pincode </label>
+      <input
+        id="pincode"
+        ngModel
+        name="pincode"
+        #pincode="ngModel"
+        required
+        minlength="3"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+        pincode.invalid && (pincode.dirty || pincode.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="pincode.errors != null && pincode.errors.required">
+          pincode  can not be empty
+        </div>
+
+        <div
+          *ngIf="pincode.errors != null && pincode.errors.minlength"
+          class="text-warning"
+        >
+          Please enter atleast 3 characters
+        </div>
+      </div>
+    </div>
+    <hr />
+    <button type="submit" class="btn btn-primary">Add Address</button>
+  </form>
+</div>
+
+<div *ngIf="address !== undefined">
+  <div class="alert alert-success text-center" role="alert">
+    Address Added Sucessfully
+  </div>
+</div>

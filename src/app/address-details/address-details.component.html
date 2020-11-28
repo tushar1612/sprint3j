@@ -1,0 +1,31 @@
+<h1 class="text-center text-info">Fetch Product Details</h1>
+
+<div class="container jumbotron">
+  <form #myform="ngForm" (ngSubmit)="myform.valid && fetchAddress(myform)">
+    <div class="form-group">
+      <label for="addressId">ID</label>
+      <input
+        type="number"
+        id="addressId"
+        ngModel
+        name="addressId"
+        #addressId="ngModel"
+        class="form-control"
+      />
+      <br />
+      <button type="submit" class="btn btn-primary">Get Address</button>
+    </div>
+  </form>
+</div>
+<div class="jumbotron" *ngIf="address !== undefined">
+  Address Id is {{ address.addressId }} <br />
+  Address streetNo is {{ address.streetNo }} <br />
+  Address buildingName is {{ address.buildingName }} <br />
+  Address city is {{ address.city }} <br />
+  Address state is {{ address.state }} <br />
+  Address country is {{ address.country }} <br />
+  Address pincode is {{ address.pincode }} <br />
+  <br />
+  <div class="alert alert-success text-center" role="alert">Fetch Success</div>
+</div>
+

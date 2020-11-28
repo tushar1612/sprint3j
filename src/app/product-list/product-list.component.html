@@ -1,0 +1,53 @@
+<h1 class="text-info text-center">Product List</h1>
+<div class="container">
+  <div class="row">
+    <table border="1" class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Product Id</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Color</th>
+          <th scope="col">Dimension</th>
+          <th scope="col">Specification</th>
+          <th scope="col">Manufacturer</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Category Id</th>
+          <th scope="col">Category Name</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.productId }}</td>
+          <td>{{ product.productName }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.color }}</td>
+          <td>{{ product.dimension }}</td>
+          <td>{{ product.specification }}</td>
+          <td>{{ product.manufacturer }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.catId }}</td>
+          <td>{{ product.categoryName }}</td>
+
+          <td>
+            <button
+              (click)="removeProduct(product.productId)"
+              class="btn btn-danger"
+            >
+              DELETE
+            </button>
+            <br />
+            <br />
+            <button
+              routerLink="updateProduct/{{ product.productId }}"
+              class="btn btn-primary"
+            >
+              UPDATE
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

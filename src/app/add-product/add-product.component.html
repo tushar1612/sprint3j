@@ -1,0 +1,214 @@
+<h1 class="text-center text-info">Add Product</h1>
+<div class="container jumbotron">
+  <form #myform="ngForm" (ngSubmit)="myform.valid && addProduct(myform)">
+    <div class="form-group">
+      <label for="productName">Product Name</label>
+      <input
+        id="productName"
+        ngModel
+        name="productName"
+        #productName="ngModel"
+        required
+        minlength="3"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          productName.invalid && (productName.dirty || productName.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="productName.errors != null && productName.errors.required">
+          Product Name can not be empty
+        </div>
+
+        <div
+          *ngIf="productName.errors != null && productName.errors.minlength"
+          class="text-warning"
+        >
+          Please enter atleast 3 characters
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input
+        class="form-control"
+        type="number"
+        id="price"
+        name="price"
+        ngModel
+        #price="ngModel"
+        required
+      />
+      <div
+        *ngIf="price.invalid && (price.dirty || price.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="price.errors != null && price.errors.required">
+          price is required
+        </div>
+      </div>
+    </div>
+
+    <hr />
+    <div class="form-group">
+      <label for="color">Color</label>
+      <select
+        class="form-control"
+        id="color"
+        name="color"
+        ngModel
+        #color="ngModel"
+        required
+        class="form-control"
+      >
+        <option>--Select--</option>
+        <option>Black</option>
+        <option>Whitek</option>
+        <option>Blue</option>
+        <option>Green</option>
+        <option>Red</option>
+      </select>
+      <div
+        *ngIf="color.invalid && (color.dirty || color.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="color.errors != null && color.errors.required">
+          Pick a Color
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="form-group">
+      <label for="dimension">Dimensions</label>
+      <input
+        id="dimension"
+        name="dimension"
+        ngModel
+        #dimension="ngModel"
+        required
+        class="form-control"
+      />
+      <div
+        *ngIf="dimension.invalid && (dimension.dirty || dimension.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="dimension.errors != null && dimension.errors.required">
+          Specify Dimensions
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="form-group">
+      <label for="specification">Specification</label>
+      <input
+        id="specification"
+        name="specification"
+        ngModel
+        #specification="ngModel"
+        required
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          specification.invalid &&
+          (specification.dirty || specification.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="specification.errors != null && specification.errors.required"
+        >
+          Specification can not be empty
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <div class="form-group">
+      <label for="manufacturer">Manufacturer</label>
+      <select
+        class="form-control"
+        id="manufacturer"
+        name="manufacturer"
+        ngModel
+        #manufacturer="ngModel"
+        required
+        class="form-control"
+      >
+        <option>--Select--</option>
+        <option>Addidas</option>
+        <option>Reebok</option>
+        <option>Nike</option>
+        <option>Puma</option>
+      </select>
+      <div
+        *ngIf="
+          manufacturer.invalid && (manufacturer.dirty || manufacturer.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="manufacturer.errors != null && manufacturer.errors.required"
+        >
+          Select a Manufacturer
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <input
+        class="form-control"
+        type="number"
+        id="quantity"
+        name="quantity"
+        ngModel
+        #quantity="ngModel"
+        required
+      />
+      <div
+        *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="quantity.errors != null && quantity.errors.required">
+          Quantity can not be empty
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <div class="form-group">
+      <label for="catId">Category Id</label>
+      <input
+        class="form-control"
+        id="catId"
+        name="catId"
+        ngModel
+        #catId="ngModel"
+        required
+      />
+      <div
+        *ngIf="catId.invalid && (catId.dirty || catId.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="catId.errors != null && catId.errors.required">
+          Category Id can not be empty
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Product</button>
+  </form>
+</div>
+
+<div *ngIf="product !== undefined">
+  <div class="alert alert-success text-center" role="alert">
+    Product Added Sucessfully
+  </div>
+</div>
